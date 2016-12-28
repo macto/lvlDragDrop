@@ -18,6 +18,7 @@ angular.module('lvl.directives.dragdrop').directive('lvlDraggable', ['$rootScope
 
             el.bind('dragstart', function(e) {
                 e.dataTransfer.setData('text', id);
+                e.dataTransfer.setData('text/x-json', JSON.stringify({ x: e.clientX, y: e.clientY }));
 
                 if (e.stopPropagation) {
                     e.stopPropagation();
